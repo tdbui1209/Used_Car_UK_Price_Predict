@@ -5,18 +5,39 @@ import pickle
 st.title('Môi giới xe Four Man')
 
 brand = st.selectbox('Chọn hãng xe:',
-                    ('Audi', 'Mercedes', 'Hyundai'))
-model = st.text_input('Nhập model của xe (ví dụ: A6):')
-model = st.selectbox('How would you like to be contacted?',
-                    ('Email', 'Home phone', 'Mobile phone'))
+                    ('audi', 'mercedes', 'hyundai'))
+
+if brand == 'audi':
+    model = st.selectbox('Chọn model của xe:',
+                        ('a1', 'a6', 'a4', 'a3', 'q3', 'q5', 'a5', 's4',
+                         'q2', 'a7', 'tt', 'q7', 'rs6', 'rs3', 'a8', 'q8',
+                         'rs4', 'rs5', 'r8', 'sq5', 's8','sq7', 's3',
+                         's5', 'a2', 'rs7'))
+elif model == 'mercedes':
+    model = st.selectbox('Chọn model của xe:',
+                        ('slk', 's class', 'sl class', 'g class', 'gle class',
+                         'gla class', 'a class', 'b class', 'glc class',
+                         'c class', 'e class', 'gl class', 'cls class',
+                         'clc class', 'cla class', 'v class', 'm class',
+                         'cl class', 'gls class', 'glb class', 'x-class',
+                         'clk', 'r class'))
+else:
+    model = st.selectbox('Chọn model của xe:',
+                        ('i20', 'tucson', 'i10', 'ix35', 'i30', 'i40',
+                         'ioniq', 'kona', 'veloster', 'i800', 'ix20',
+                         'santa fe', 'accent', 'terracan', 'getz', 'amica'))
+
 year = st.number_input('Nhập năm đăng ký xe:')
 mileage = st.number_input('Nhập số miles đã đi:')
 tax = st.number_input('Nhập thuế hàng năm:')
-mpg = st.number_input('Nhập số mile/gallon:')
+mpg = st.number_input('Nhập số mile/gallon (combined):')
 engineSize = st.number_input('Nhập kích cỡ động cơ:')
-transmission = st.text_input('Nhập kiểu hộp số:')
-fuelType = st.text_input('Nhập loại nhiên liệu:')
 
+transmission = st.selectbox('Chọn kiểu hộp số:',
+                          ('Automatic', 'Manual', 'Semi-Auto', 'Other'))
+
+fuelType = st.selectbox('Chọn kloại nhiên liệu:',
+                       ('Petrol', 'Hybrid', 'Diesel', 'Other'))
 
 final_model = pickle.load(open('final_model.sav', 'rb'))
 lb_encoder = pickle.load(open('lb_encoder.sav', 'rb'))
