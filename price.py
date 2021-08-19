@@ -13,7 +13,7 @@ if brand == 'audi':
                          'q2', 'a7', 'tt', 'q7', 'rs6', 'rs3', 'a8', 'q8',
                          'rs4', 'rs5', 'r8', 'sq5', 's8','sq7', 's3',
                          's5', 'a2', 'rs7'))
-elif model == 'mercedes':
+elif brand == 'mercedes':
     model = st.selectbox('Chọn model của xe:',
                         ('slk', 's class', 'sl class', 'g class', 'gle class',
                          'gla class', 'a class', 'b class', 'glc class',
